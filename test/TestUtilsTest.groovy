@@ -202,11 +202,4 @@ class TestUtilsTest extends PipelineTestScript {
         TestUtils.runTest(this, target, config, body, onFailure, onComplete)
         assertNoExceptions()
     }
-
-    private void assertNoExceptions() {
-        testLog.each {
-            msg ->
-            assert(!msg.toLowerCase().contains('exception'))
-        }
-    }
 }

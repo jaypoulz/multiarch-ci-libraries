@@ -74,13 +74,17 @@ class PipelineTestScript extends Script {
     }
 
     Closure parallel = {
-        tasks ->
+        Map tasks ->
         LOG.info('parallel()')
+        int tasksRun = 0
         tasks.each {
             task ->
+            assert(task.key)
             LOG.info("Running on Host: ${task.key}")
             task.value()
+            tasksRun++
         }
+        assert(tasksRun == tasks.size())
     }
 
     Closure podTemplate = {
@@ -140,6 +144,13 @@ class PipelineTestScript extends Script {
     Closure writeFile = {
         args ->
         LOG.info("writeFile(${args})")
+    }
+
+    void assertNoExceptions() {
+        testLog.each {
+            msg ->
+            assert(!msg.toLowerCase().contains('exception'))
+        }
     }
 
     PipelineTestScript() {
