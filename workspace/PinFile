@@ -33,7 +33,7 @@ beaker-slave:
           {% if reserve_duration %}
           reserve_duration: {{ reserve_duration | default('86400') }}
           {% endif %}
-          count: 1
+          count: {{ count | default(1) }}
           name: "Jenkins Slave"
           {% if hostrequires %}
           hostrequires:
@@ -66,7 +66,7 @@ beaker-slave:
         {% endfor %}
       {% endif %}
       hosts:
-        beaker-slave:
+        beaker-master:
           count: 1
           host_groups:
             - rhel7
@@ -74,3 +74,7 @@ beaker-slave:
             - repositories
             - jenkins_slave
             - master_node
+        beaker-slave:
+          count: {{ (count | default(1)) - 1 }}
+          host_groups:
+            - target_node

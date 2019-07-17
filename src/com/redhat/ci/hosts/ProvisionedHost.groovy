@@ -60,6 +60,7 @@ class ProvisionedHost extends TargetHost {
         this.bkrKernelOptions = target.bkrKernelOptions
         this.bkrKernelOptionsPost = target.bkrKernelOptionsPost
         this.bkrMethod = target.bkrMethod
+        this.bkrCount = target.bkrCount
         this.reserveDuration = target.reserveDuration
         this.scriptParams = target.scriptParams
         this.remoteUser = target.remoteUser

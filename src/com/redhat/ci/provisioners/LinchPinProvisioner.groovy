@@ -200,6 +200,7 @@ class LinchPinProvisioner extends AbstractProvisioner {
             kernel_options:host.bkrKernelOptions,
             kernel_options_post:host.bkrKernelOptionsPost,
             method:host.bkrMethod,
+            count:host.bkrCount,
             reserve_duration:host.reserveDuration,
             job_group:host.bkrJobGroup ?: config.jobgroup,
             hostrequires:getHostRequires(host, config),

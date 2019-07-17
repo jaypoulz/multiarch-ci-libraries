@@ -48,6 +48,9 @@ class TargetHost extends Host {
     // Beaker installation method
     String bkrMethod = null
 
+    // Number of beaker hosts with this configuration
+    Integer bkrCount = 1
+
     // Reservation duration
     Integer reserveDuration = null
 
