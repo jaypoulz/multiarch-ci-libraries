@@ -104,7 +104,7 @@ class Utils {
             String sudo = privileged ? SUDO : NO_SUDO
             String distro = host ? host.distro : 'RHEL-7'
             String variant = host ? host.variant : 'Server'
-            if (!distro || !variant || !distro.startsWith('RHEL')) {
+            if (!distro || !variant || !distro.trim().startsWith('RHEL')) {
                 script.echo("Installing rhpkg tool is not supported for distro=[${distro}] and variant=[${variant}]")
                 return
             }
